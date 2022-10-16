@@ -32,6 +32,7 @@ import DxPieChart, {
   DxConnector,
   DxExport,
 } from 'devextreme-vue/pie-chart';
+import { LegendClickEvent, PointClickEvent } from 'devextreme/viz/pie_chart';
 
 export default Vue.extend({
   components: {
@@ -50,10 +51,10 @@ export default Vue.extend({
     },
   },
   methods: {
-    pointClickHandler(e:any) {
+    pointClickHandler(e:PointClickEvent) {
       this.toggleVisibility(e.target);
     },
-    legendClickHandler(e:any) {
+    legendClickHandler(e:LegendClickEvent) {
       const arg = e.target;
       const item = e.component.getAllSeries()[0].getPointsByArg(arg)[0];
 
